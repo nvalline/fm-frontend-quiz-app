@@ -1,78 +1,70 @@
 // ----- Colors -----
 
 $colors: (
-	// primary: (
-	// 	'green': hsl(127, 100%, 82%),
-	// 	'orange': hsl(13, 95%, 66%),
-	// 	'red': hsl(0, 91%, 63%),
-	// 	'yellow': hsl(42, 91%, 68%)
-	// ),
-	// neutral: (
-	// 	'gray': hsl(251, 9%, 53%),
-	// 	'gray-dark': hsl(248, 10%, 15%),
-	// 	'gray-disabled': hsl(253, 5%, 34%),
-	// 	'gray-very-dark': hsl(248, 15%, 11%),
-	// 	'offwhite': hsl(252, 11%, 91%),
-	// 	'white': hsl(0, 100%, 100%)
-	// ),
-	// gradient: (
-	// 	'linear-gray': linear-gradient(hsl(248, 17%, 9%), hsl(255, 22%, 4%))
-	// )
+	primary: (
+		'green': hsl(151, 70%, 50%),
+		'blue-light': hsl(216, 47%, 78%),
+		'purple': hsl(277, 91%, 56%),
+		'red': hsl(0, 82%, 63%)
+	),
+	neutral: (
+		'gray': hsl(219, 13%, 44%),
+		'gray-light': hsl(220, 38%, 97%),
+		'gray-dark': hsl(215, 27%, 32%),
+		'gray-varyDark': hsl(216, 25%, 25%),
+		'white': hsl(0, 100%, 100%)
+	)
 );
 
 // ----- Typography -----
 
-// @font-face {
-// 	font-family: 'JetBrains Mono';
-// 	font-style: normal;
-// 	font-weight: 700;
-// 	src: url('../assets/fonts/static/JetBrainsMono-Bold.ttf');
-// }
+@font-face {
+	font-family: 'Rubik';
+	font-style: normal;
+	src: url('../assets/fonts/Rubik-VariableFont_wght.ttf');
+}
+
+@font-face {
+	font-family: 'Rubik';
+	font-style: italic;
+	src: url('../assets/fonts/Rubik-Italic-VariableFont_wght.ttf');
+}
 
 $font-families: (
-	// primary: (
-	// 	jet-brains: "'JetBrains Mono', monospace"
-	// )
+	primary: (
+		rubik: "'Rubik', sans-serif"
+	)
 );
 
 $font-sizes: (
-	// heading: (
-	// 	lg: 2rem,
-	// 	md: 1.5rem
-	// ),
-	// body: (
-	// 	lg: 1.5rem,
-	// 	md: 1.125rem,
-	// 	sm: 1rem,
-	// 	xs: 0.75rem
-	// )
+	display: (
+		md: 9rem
+	),
+	heading: (
+		lg: 4rem,
+		md: 2.25rem,
+		sm: 1.75rem
+	),
+	body: (
+		md: 0.75rem,
+		sm: 0.75rem
+	)
 );
 
-// $font-weights: (
-//   bold: 700
-//   );
+$font-weights: (
+	light: 300,
+	regular: 400,
+	medium: 500,
+	semiBold: 600,
+	bold: 700,
+	extraBold: 800,
+	'black': 900
+);
 
 $line-heights: (
-	// heading: (
-	// 	lg: 43px,
-	// 	md: 32px
-	// ),
-	// body: (
-	// 	lg: 32px,
-	// 	md: 23px,
-	// 	sm: 21px,
-	// 	xs: 16px
-	// )
+	display: 100%,
+	heading: 100%,
+	body: 150%
 );
 
 // ----- Misc Variables -----
-
-$range-values: (
-	// track: (
-	// 	h: 8px
-	// ),
-	// thumb: (
-	// 	h: 28px,
-	// 	w: 28px
-	// )
-);

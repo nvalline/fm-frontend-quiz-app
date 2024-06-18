@@ -13,7 +13,7 @@ import '../styles/layout/Header.scss';
 export default function Header() {
 	return (
 		<header>
-			<h2>Category</h2>
+			<p>Category</p>
 			<div className='themeSwitch'>
 				<SunDark />
 				<ToggleSwitch />
