@@ -1,0 +1,78 @@
+// ----- Colors -----
+
+$colors: (
+	// primary: (
+	// 	'green': hsl(127, 100%, 82%),
+	// 	'orange': hsl(13, 95%, 66%),
+	// 	'red': hsl(0, 91%, 63%),
+	// 	'yellow': hsl(42, 91%, 68%)
+	// ),
+	// neutral: (
+	// 	'gray': hsl(251, 9%, 53%),
+	// 	'gray-dark': hsl(248, 10%, 15%),
+	// 	'gray-disabled': hsl(253, 5%, 34%),
+	// 	'gray-very-dark': hsl(248, 15%, 11%),
+	// 	'offwhite': hsl(252, 11%, 91%),
+	// 	'white': hsl(0, 100%, 100%)
+	// ),
+	// gradient: (
+	// 	'linear-gray': linear-gradient(hsl(248, 17%, 9%), hsl(255, 22%, 4%))
+	// )
+);
+
+// ----- Typography -----
+
+// @font-face {
+// 	font-family: 'JetBrains Mono';
+// 	font-style: normal;
+// 	font-weight: 700;
+// 	src: url('../assets/fonts/static/JetBrainsMono-Bold.ttf');
+// }
+
+$font-families: (
+	// primary: (
+	// 	jet-brains: "'JetBrains Mono', monospace"
+	// )
+);
+
+$font-sizes: (
+	// heading: (
+	// 	lg: 2rem,
+	// 	md: 1.5rem
+	// ),
+	// body: (
+	// 	lg: 1.5rem,
+	// 	md: 1.125rem,
+	// 	sm: 1rem,
+	// 	xs: 0.75rem
+	// )
+);
+
+// $font-weights: (
+//   bold: 700
+//   );
+
+$line-heights: (
+	// heading: (
+	// 	lg: 43px,
+	// 	md: 32px
+	// ),
+	// body: (
+	// 	lg: 32px,
+	// 	md: 23px,
+	// 	sm: 21px,
+	// 	xs: 16px
+	// )
+);
+
+// ----- Misc Variables -----
+
+$range-values: (
+	// track: (
+	// 	h: 8px
+	// ),
+	// thumb: (
+	// 	h: 28px,
+	// 	w: 28px
+	// )
+);
