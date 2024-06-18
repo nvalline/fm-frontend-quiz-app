@@ -1,1 +1,9 @@
-@use './styles/' as *;
+@use './styles/abstracts' as *;
+
+body {
+	background-color: var(--clr-neutral-navy-dark);
+	background-image: url('./assets/images/pattern-background-mobile-dark.svg');
+	background-repeat: no-repeat;
+	font-family: var(--ff-primary-rubik);
+	font-optical-sizing: auto;
+}

@@ -11,7 +11,7 @@ $colors: (
 		'gray': hsl(219, 13%, 44%),
 		'gray-light': hsl(220, 38%, 97%),
 		'gray-dark': hsl(215, 27%, 32%),
-		'gray-varyDark': hsl(216, 25%, 25%),
+		'navy-dark': hsl(216, 25%, 25%),
 		'white': hsl(0, 100%, 100%)
 	)
 );
@@ -21,13 +21,15 @@ $colors: (
 @font-face {
 	font-family: 'Rubik';
 	font-style: normal;
-	src: url('../assets/fonts/Rubik-VariableFont_wght.ttf');
+	src: url('../../src/assets/fonts/Rubik-VariableFont_wght.ttf')
+		format('truetype');
 }
 
 @font-face {
 	font-family: 'Rubik';
 	font-style: italic;
-	src: url('../assets/fonts/Rubik-Italic-VariableFont_wght.ttf');
+	src: url('.../../src/assets/fonts/Rubik-Italic-VariableFont_wght.ttf')
+		format('truetype');
 }
 
 $font-families: (
@@ -43,7 +45,8 @@ $font-sizes: (
 	heading: (
 		lg: 4rem,
 		md: 2.25rem,
-		sm: 1.75rem
+		sm: 1.75rem,
+		xs: 1.125rem
 	),
 	body: (
 		md: 0.75rem,

@@ -20,7 +20,7 @@
 		right: 0;
 		bottom: 0;
 		left: 0;
-		background-color: purple;
+		background-color: var(--clr-primary-purple);
 		border-radius: 62.4rem;
 		cursor: pointer;
 
@@ -32,7 +32,7 @@
 			height: 12px;
 			width: 12px;
 			border-radius: 50%;
-			background-color: white;
+			background-color: var(--clr-neutral-white);
 			transition: 400ms;
 		}
 	}
