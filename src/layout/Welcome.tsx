@@ -1,5 +1,11 @@
+// Components
+import CategoryLogo from '../components/CategoryLogo';
+
 // Styles
 import '../styles/layout/Welcome.scss';
+
+const icon = '/images/icon-accessibility.svg';
+const category = 'Accessibility';
 
 export default function Welcome() {
 	return (
@@ -10,6 +16,7 @@ export default function Welcome() {
 				</h1>
 				<p className='subTitle'>Pick a subject to get started.</p>
 			</div>
+			<CategoryLogo icon={icon} category={category} />
 		</>
 	);
 }

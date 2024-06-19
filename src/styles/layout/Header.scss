@@ -6,35 +6,6 @@ header {
 	align-items: center;
 	justify-content: flex-end;
 
-	// !Icon & Category Styles
-	// .categoryWrapper {
-	// 	display: flex;
-	// 	align-items: center;
-	// 	gap: 1rem;
-
-	// 	.iconWrapper {
-	// 		height: 2.5rem;
-	// 		width: 2.5rem;
-	// 		display: flex;
-	// 		align-items: center;
-	// 		justify-content: center;
-	// 		border-radius: 4px;
-	// 		background-color: var(--clr-neutral-white);
-
-	// 		svg {
-	// 			height: 28.57px;
-	// 			width: 28.57px;
-	// 		}
-	// 	}
-
-	// 	h2 {
-	// 		font-size: var(--fs-heading-xs);
-	// 		font-weight: var(--fw-medium);
-	// 		line-height: var(--lh-heading);
-	// 		color: var(--clr-neutral-white);
-	// 	}
-	// }
-
 	.themeSwitch {
 		display: flex;
 		align-items: center;
