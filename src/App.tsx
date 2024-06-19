@@ -1,5 +1,6 @@
 // Components
 import Header from './layout/Header';
+import Welcome from './layout/Welcome';
 
 // Styles
 import './App.scss';
@@ -8,7 +9,9 @@ function App() {
 	return (
 		<div>
 			<Header />
-			<h1>Quiz App</h1>
+			<section>
+				<Welcome />
+			</section>
 		</div>
 	);
 }

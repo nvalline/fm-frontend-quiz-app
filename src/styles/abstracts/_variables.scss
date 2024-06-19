@@ -43,13 +43,14 @@ $font-sizes: (
 		md: 9rem
 	),
 	heading: (
-		lg: 4rem,
+		xl: 4rem,
+		lg: 2.5rem,
 		md: 2.25rem,
 		sm: 1.75rem,
 		xs: 1.125rem
 	),
 	body: (
-		md: 0.75rem,
+		md: 0.875rem,
 		sm: 0.75rem
 	)
 );
@@ -66,7 +67,7 @@ $font-weights: (
 
 $line-heights: (
 	display: 100%,
-	heading: 100%,
+	heading: 110%,
 	body: 150%
 );
 

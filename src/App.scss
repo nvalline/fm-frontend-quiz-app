@@ -6,4 +6,8 @@ body {
 	background-repeat: no-repeat;
 	font-family: var(--ff-primary-rubik);
 	font-optical-sizing: auto;
+
+	section {
+		padding: 2rem 1.5rem;
+	}
 }

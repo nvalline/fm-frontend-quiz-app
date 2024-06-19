@@ -1,0 +1,21 @@
+.titleWrapper {
+	.title {
+		margin-bottom: 1rem;
+		font-size: var(--fs-heading-lg);
+		font-weight: var(--fw-light);
+		line-height: var(--lh-heading);
+		color: var(--clr-neutral-white);
+
+		span {
+			font-weight: var(--fw-medium);
+		}
+	}
+
+	.subTitle {
+		font-size: var(--fs-body-md);
+		font-style: italic;
+		font-weight: var(--fw-regular);
+		line-height: var(--lh-body);
+		color: var(--clr-primary-blue-light);
+	}
+}
