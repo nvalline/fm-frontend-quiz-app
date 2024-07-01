@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import DataContextProvider from './contexts/dataContext.tsx';
 import ThemeContextProvider from './contexts/themeContext.tsx';
 
 // Components
@@ -11,7 +12,9 @@ import './index.css';
 ReactDOM.createRoot(document.getElementById('root')!).render(
 	<React.StrictMode>
 		<ThemeContextProvider>
-			<App />
+			<DataContextProvider>
+				<App />
+			</DataContextProvider>
 		</ThemeContextProvider>
 	</React.StrictMode>
 );

@@ -10,6 +10,7 @@ import './App.scss';
 // Data
 import quizData from '../data/data.json';
 console.log('DATA:', quizData.quizzes);
+
 function App() {
 	const { theme } = useThemeContext();
 
