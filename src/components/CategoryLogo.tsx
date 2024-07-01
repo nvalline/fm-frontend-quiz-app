@@ -8,6 +8,8 @@ export default function CategoryLogo({
 	icon: string;
 	category: string;
 }) {
+	const formatedIconPath = icon.slice(8);
+
 	let bgColor = '';
 
 	if (category == 'Accessibility') {
@@ -23,7 +25,7 @@ export default function CategoryLogo({
 	return (
 		<div className='categoryWrapper'>
 			<div className='iconWrapper' style={{ backgroundColor: bgColor }}>
-				<img src={icon} alt={category} height={40} width={40} />
+				<img src={formatedIconPath} alt={category} height={40} width={40} />
 			</div>
 			<h2>{category}</h2>
 		</div>
