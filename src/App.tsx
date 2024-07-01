@@ -1,3 +1,5 @@
+import { useEffect } from 'react';
+import { useDataContext } from './contexts/dataContext';
 import { useThemeContext } from './contexts/themeContext';
 
 // Components
@@ -9,12 +11,16 @@ import './App.scss';
 
 // Data
 import quizData from '../data/data.json';
-console.log('DATA:', quizData.quizzes);
 
 function App() {
 	const { theme } = useThemeContext();
+	const { setData } = useDataContext();
 
 	console.log('THEME', theme);
+
+	useEffect(() => {
+		setData(quizData);
+	});
 
 	return (
 		<div>
