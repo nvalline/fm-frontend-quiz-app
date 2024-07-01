@@ -23,7 +23,7 @@ export default function CategoryLogo({
 	}
 
 	return (
-		<div className='categoryWrapper'>
+		<div className='logoWrapper'>
 			<div className='iconWrapper' style={{ backgroundColor: bgColor }}>
 				<img src={formatedIconPath} alt={category} height={40} width={40} />
 			</div>

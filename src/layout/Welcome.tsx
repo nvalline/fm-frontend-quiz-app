@@ -25,12 +25,15 @@ export default function Welcome() {
 				</h1>
 				<p className='subTitle'>Pick a subject to get started.</p>
 			</div>
-
-			{quizData.map((quiz: Quiz, index: number) => {
-				return (
-					<CategoryLogo key={index} icon={quiz.icon} category={quiz.title} />
-				);
-			})}
+			<div className='categories'>
+				{quizData.map((quiz: Quiz, index: number) => {
+					return (
+						<div key={index} className='categoryWrapper'>
+							<CategoryLogo icon={quiz.icon} category={quiz.title} />
+						</div>
+					);
+				})}
+			</div>
 		</>
 	);
 }

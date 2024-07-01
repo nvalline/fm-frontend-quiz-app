@@ -10,7 +10,7 @@ $colors: (
 	neutral: (
 		'gray': hsl(219, 13%, 44%),
 		'gray-light': hsl(220, 38%, 97%),
-		'gray-dark': hsl(215, 27%, 32%),
+		'navy': hsl(215, 27%, 32%),
 		'navy-dark': hsl(216, 25%, 25%),
 		'white': hsl(0, 100%, 100%)
 	),
@@ -19,6 +19,9 @@ $colors: (
 		'blue': hsl(225, 100%, 96%),
 		'purple': hsl(278, 100%, 95%),
 		'red': hsl(22, 100%, 96%)
+	),
+	shadow: (
+		'navy-dark': hsla(216, 25%, 25%, 0.14)
 	)
 );
 
