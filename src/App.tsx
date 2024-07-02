@@ -25,7 +25,6 @@ function App() {
 	};
 
 	console.log('THEME', theme);
-	console.log('SEARCH PARAMS', searchParams.get('c'));
 
 	useEffect(() => {
 		setData(quizData);
@@ -35,11 +34,11 @@ function App() {
 		<div>
 			<Header />
 			<section>
-				{!searchParams.get('c') ? (
-					<Welcome navigateToCategory={navigateToCategory} />
-				) : (
-					<p>{searchParams.get('c')}</p>
-				)}
+				{(searchParams.get('c') === 'HTML' && <p>HTML Component</p>) ||
+					(searchParams.get('c') === 'CSS' && <p>CSS Component</p>) ||
+					(!searchParams.get('c') && (
+						<Welcome navigateToCategory={navigateToCategory} />
+					))}
 			</section>
 		</div>
 	);
