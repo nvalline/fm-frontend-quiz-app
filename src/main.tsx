@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { BrowserRouter } from 'react-router-dom';
 import DataContextProvider from './contexts/dataContext.tsx';
 import ThemeContextProvider from './contexts/themeContext.tsx';
 
@@ -13,7 +14,9 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
 	<React.StrictMode>
 		<ThemeContextProvider>
 			<DataContextProvider>
-				<App />
+				<BrowserRouter>
+					<App />
+				</BrowserRouter>
 			</DataContextProvider>
 		</ThemeContextProvider>
 	</React.StrictMode>

@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import { useDataContext } from './contexts/dataContext';
 import { useThemeContext } from './contexts/themeContext';
 
@@ -15,8 +16,16 @@ import quizData from '../data/data.json';
 function App() {
 	const { theme } = useThemeContext();
 	const { setData } = useDataContext();
+	const navigate = useNavigate();
+	const [searchParams, setSearchParams] = useSearchParams();
+
+	const navigateToCategory = (category: string) => {
+		setSearchParams({ c: category });
+		navigate({ search: `?c=${category}` });
+	};
 
 	console.log('THEME', theme);
+	console.log('SEARCH PARAMS', searchParams.get('c'));
 
 	useEffect(() => {
 		setData(quizData);
@@ -26,7 +35,11 @@ function App() {
 		<div>
 			<Header />
 			<section>
-				<Welcome />
+				{!searchParams.get('c') ? (
+					<Welcome navigateToCategory={navigateToCategory} />
+				) : (
+					<p>{searchParams.get('c')}</p>
+				)}
 			</section>
 		</div>
 	);

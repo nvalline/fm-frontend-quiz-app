@@ -6,13 +6,19 @@ import CategoryLogo from '../components/CategoryLogo';
 // Styles
 import '../styles/layout/Welcome.scss';
 
+type NavigateToCategoryProps = {
+	navigateToCategory: (search: string) => void;
+};
+
 type Quiz = {
 	title: string;
 	icon: string;
 	questions: { question: string; options: string[]; answer: string }[];
 };
 
-export default function Welcome() {
+export default function Welcome({
+	navigateToCategory
+}: NavigateToCategoryProps) {
 	const { data } = useDataContext();
 
 	const quizData = JSON.parse(JSON.stringify(data.quizzes));
@@ -28,7 +34,11 @@ export default function Welcome() {
 			<div className='categories'>
 				{quizData.map((quiz: Quiz, index: number) => {
 					return (
-						<div key={index} className='categoryWrapper'>
+						<div
+							key={index}
+							className='categoryWrapper'
+							onClick={() => navigateToCategory(`${quiz.title}`)}
+						>
 							<CategoryLogo icon={quiz.icon} category={quiz.title} />
 						</div>
 					);
