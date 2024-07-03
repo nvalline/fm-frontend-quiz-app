@@ -5,6 +5,7 @@ import { useThemeContext } from './contexts/themeContext';
 
 // Components
 import Header from './layout/Header';
+import Html from './layout/Html';
 import Welcome from './layout/Welcome';
 
 // Styles
@@ -32,9 +33,9 @@ function App() {
 
 	return (
 		<div>
-			<Header />
+			<Header category={searchParams.get('c')} />
 			<section>
-				{(searchParams.get('c') === 'HTML' && <p>HTML Component</p>) ||
+				{(searchParams.get('c') === 'HTML' && <Html />) ||
 					(searchParams.get('c') === 'CSS' && <p>CSS Component</p>) ||
 					(!searchParams.get('c') && (
 						<Welcome navigateToCategory={navigateToCategory} />
