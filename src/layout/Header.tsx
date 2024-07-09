@@ -15,7 +15,7 @@ import ToggleSwitch from '../components/ToggleSwitch';
 import '../styles/layout/Header.scss';
 
 type CategoryProps = {
-	category: string | null;
+	category: string | undefined;
 };
 
 type Quiz = {
@@ -34,12 +34,15 @@ export default function Header({ category }: CategoryProps) {
 	return (
 		<header>
 			<div>
-				{!category ? null : (
+				{category?.toString() === 'HTML' ||
+				category?.toString() === 'CSS' ||
+				category?.toString() === 'JavaScript' ||
+				category?.toString() === 'Accessibility' ? (
 					<CategoryLogo
 						icon={currentQuiz[0].icon}
 						category={currentQuiz[0].title}
 					/>
-				)}
+				) : null}
 			</div>
 			<div className='themeSwitch'>
 				<SunDark />

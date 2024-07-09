@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { useDataContext } from './contexts/dataContext';
 import { useThemeContext } from './contexts/themeContext';
@@ -19,26 +19,44 @@ function App() {
 	const { setData } = useDataContext();
 	const navigate = useNavigate();
 	const [searchParams, setSearchParams] = useSearchParams();
+	const [paramsQuery, setParamsQuery] = useState<string>();
 
-	const navigateToCategory = (category: string) => {
-		setSearchParams({ c: category });
-		navigate({ search: `?c=${category}` });
-	};
+	const navigateToCategory = useCallback(
+		(category: string) => {
+			if (
+				category === 'HTML' ||
+				category === 'CSS' ||
+				category === 'JavaScript' ||
+				category === 'Accessibility'
+			) {
+				navigate({ search: `?c=${category}` });
+			} else {
+				navigate('/');
+			}
+		},
+		[navigate]
+	);
 
 	console.log('THEME', theme);
 
 	useEffect(() => {
 		setData(quizData);
-	});
+
+		const params = searchParams.get('c')?.toString();
+
+		if (params) {
+			navigateToCategory(params);
+		}
+
+		setParamsQuery(params);
+	}, [navigateToCategory, setData, searchParams, setSearchParams]);
 
 	return (
 		<div>
-			<Header category={searchParams.get('c')} />
+			<Header category={paramsQuery} />
 			<section>
-				{(searchParams.get('c') && <Questions />) ||
-					(!searchParams.get('c') && (
-						<Welcome navigateToCategory={navigateToCategory} />
-					))}
+				{(paramsQuery && <Questions />) ||
+					(!paramsQuery && <Welcome navigateToCategory={navigateToCategory} />)}
 			</section>
 		</div>
 	);
