@@ -5,7 +5,7 @@
 		margin-bottom: 1rem;
 		font-size: var(--fs-heading-lg);
 		font-weight: var(--fw-light);
-		line-height: var(--lh-heading);
+		line-height: var(--lh-heading-sm);
 		color: var(--clr-neutral-white);
 
 		span {
@@ -18,7 +18,7 @@
 		font-style: italic;
 		font-weight: var(--fw-regular);
 		line-height: var(--lh-body);
-		color: var(--clr-primary-blue-light);
+		color: var(--clr-primary-bluish-light);
 	}
 }
 

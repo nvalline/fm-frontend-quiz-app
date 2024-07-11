@@ -55,7 +55,7 @@ function App() {
 		<div>
 			<Header category={paramsQuery} />
 			<section>
-				{(paramsQuery && <Questions />) ||
+				{(paramsQuery && <Questions category={paramsQuery} />) ||
 					(!paramsQuery && <Welcome navigateToCategory={navigateToCategory} />)}
 			</section>
 		</div>

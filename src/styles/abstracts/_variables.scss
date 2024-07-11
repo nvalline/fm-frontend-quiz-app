@@ -3,12 +3,12 @@
 $colors: (
 	primary: (
 		'green': hsl(151, 70%, 50%),
-		'blue-light': hsl(216, 47%, 78%),
+		'bluish-light': hsl(216, 47%, 78%),
 		'purple': hsl(277, 91%, 56%),
 		'red': hsl(0, 82%, 63%)
 	),
 	neutral: (
-		'gray': hsl(219, 13%, 44%),
+		'gray-navy': hsl(219, 13%, 44%),
 		'gray-light': hsl(220, 38%, 97%),
 		'navy': hsl(215, 27%, 32%),
 		'navy-dark': hsl(216, 25%, 25%),
@@ -56,7 +56,8 @@ $font-sizes: (
 		lg: 2.5rem,
 		md: 2.25rem,
 		sm: 1.75rem,
-		xs: 1.125rem
+		xs: 1.25rem,
+		xxs: 1.125rem
 	),
 	body: (
 		md: 0.875rem,
@@ -76,7 +77,9 @@ $font-weights: (
 
 $line-heights: (
 	display: 100%,
-	heading: 110%,
+	heading-lg: 120%,
+	heading-sm: 110%,
+	heading-xs: 100%,
 	body: 150%
 );
 
