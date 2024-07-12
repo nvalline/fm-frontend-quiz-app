@@ -1,5 +1,9 @@
 import { useEffect, useState } from 'react';
 import { useDataContext } from '../contexts/dataContext';
+import correctIcon from '../assets/images/icon-correct.svg';
+import errorIcon from '../assets/images/icon-error.svg';
+
+// Components
 
 // Styles
 import '../styles/layout/Questions.scss';
@@ -10,8 +14,10 @@ type CategoryProps = {
 
 export default function Questions({ category }: CategoryProps) {
 	const { data } = useDataContext();
-	const [questionNumber, setQuestionNumber] = useState<number>(0);
 	const [correctAnswer, setCorrectAnswer] = useState<string>('');
+	const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
+	const [score, setScore] = useState<number>(0);
+	const [questionNumber, setQuestionNumber] = useState<number>(0);
 
 	const quizData = JSON.parse(JSON.stringify(data.quizzes));
 
@@ -34,11 +40,28 @@ export default function Questions({ category }: CategoryProps) {
 
 	const questionData = quiz.questions[questionNumber];
 
+	const handleChoice = (event: React.MouseEvent<HTMLButtonElement>) => {
+		event.preventDefault();
+
+		console.log('EVENT:', event.currentTarget.value);
+
+		if (event.currentTarget.value === correctAnswer) {
+			console.log('CORRECT ANSWER');
+			setIsCorrect(true);
+			setScore(score + 1);
+		} else {
+			console.log('WRONG ANSWER');
+			setIsCorrect(false);
+		}
+	};
+
+	console.log('SCORE:', score);
+
 	useEffect(() => {
 		setCorrectAnswer(questionData.answer);
 	}, [questionData, setCorrectAnswer]);
 
-	console.log('Question:', questionData);
+	// console.log('Question:', questionData);
 
 	return (
 		<form>
@@ -54,14 +77,24 @@ export default function Questions({ category }: CategoryProps) {
 			<ul className='optionsWrapper'>
 				{questionData.options.map((option: string, index: number) => (
 					<li key={index}>
-						<span className='optionIdentifier'>
-							{String.fromCharCode(65 + index)}
-						</span>
-						{option}
+						<button type='button' value={option} onClick={handleChoice}>
+							<span className='optionIdentifier'>
+								{String.fromCharCode(65 + index)}
+							</span>
+							{option}
+							<span>
+								{isCorrect !== null &&
+									(isCorrect ? (
+										<img src={correctIcon} alt='correct' />
+									) : (
+										<img src={errorIcon} alt='incorrect' />
+									))}
+							</span>
+						</button>
 					</li>
 				))}
 			</ul>
-			<button>Submit Answer</button>
+			<button className='submitButton'>Submit Answer</button>
 		</form>
 	);
 }

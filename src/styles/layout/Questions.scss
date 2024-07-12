@@ -67,35 +67,50 @@ form {
 
 		li {
 			width: 100%;
-			padding: 0.75rem;
-			display: flex;
-			align-items: center;
-			gap: 1rem;
-			background-color: var(--clr-neutral-navy);
-			border-radius: 12px;
-			font-size: var(--fs-heading-xxs);
-			font-weight: var(--fw-medium);
-			line-height: var(--lh-heading-xs);
-			color: var(--clr-neutral-white);
-			cursor: pointer;
 
-			span {
-				height: 40px;
-				width: 40px;
+			button {
+				width: 100%;
+				padding: 0.75rem;
 				display: flex;
 				align-items: center;
-				justify-content: center;
-				background-color: var(--clr-neutral-gray-light);
-				border-radius: 6px;
+				gap: 1rem;
+				background-color: var(--clr-neutral-navy);
+				border: none;
+				border-radius: 12px;
 				font-size: var(--fs-heading-xxs);
 				font-weight: var(--fw-medium);
 				line-height: var(--lh-heading-xs);
-				color: var(--clr-neutral-gray-navy);
+				text-align: left;
+				color: var(--clr-neutral-white);
+				cursor: pointer;
+
+				&:active {
+					outline: 3px solid var(--clr-primary-purple);
+
+					.optionIdentifier {
+						background-color: var(--clr-primary-purple);
+						color: var(--clr-neutral-white);
+					}
+				}
+
+				.optionIdentifier {
+					height: 40px;
+					width: 40px;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					background-color: var(--clr-neutral-gray-light);
+					border-radius: 6px;
+					font-size: var(--fs-heading-xxs);
+					font-weight: var(--fw-medium);
+					line-height: var(--lh-heading-xs);
+					color: var(--clr-neutral-gray-navy);
+				}
 			}
 		}
 	}
 
-	button {
+	.submitButton {
 		height: 56px;
 		width: 100%;
 		padding: 0.75rem;
