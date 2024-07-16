@@ -68,12 +68,13 @@ form {
 		li {
 			width: 100%;
 
-			button {
+			.optionButton {
 				width: 100%;
 				padding: 0.75rem;
-				display: flex;
-				align-items: center;
+				display: grid;
+				grid-template-columns: 40px auto 32px;
 				gap: 1rem;
+				align-items: center;
 				background-color: var(--clr-neutral-navy);
 				border: none;
 				border-radius: 12px;
@@ -84,18 +85,10 @@ form {
 				color: var(--clr-neutral-white);
 				cursor: pointer;
 
-				&:active {
-					outline: 3px solid var(--clr-primary-purple);
-
-					.optionIdentifier {
-						background-color: var(--clr-primary-purple);
-						color: var(--clr-neutral-white);
-					}
-				}
-
 				.optionIdentifier {
 					height: 40px;
 					width: 40px;
+					margin-right: 1rem;
 					display: flex;
 					align-items: center;
 					justify-content: center;
@@ -105,6 +98,20 @@ form {
 					font-weight: var(--fw-medium);
 					line-height: var(--lh-heading-xs);
 					color: var(--clr-neutral-gray-navy);
+				}
+
+				.statusIcon img {
+					height: 32px;
+					width: 32px;
+				}
+			}
+
+			.optionButton.selected {
+				outline: 3px solid var(--clr-primary-purple);
+
+				.optionIdentifier {
+					background-color: var(--clr-primary-purple);
+					color: var(--clr-neutral-white);
 				}
 			}
 		}
