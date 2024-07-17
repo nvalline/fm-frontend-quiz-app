@@ -4,6 +4,8 @@ import correctIcon from '../assets/images/icon-correct.svg';
 import errorIcon from '../assets/images/icon-error.svg';
 
 // Components
+import Button from '../components/Button';
+import ErrorMsg from '../components/ErrorMsg';
 
 // Styles
 import '../styles/layout/Questions.scss';
@@ -24,6 +26,8 @@ export default function Questions({ category }: CategoryProps) {
 	const [questionNumber, setQuestionNumber] = useState<number>(0);
 	const [score, setScore] = useState<number>(0);
 	const [selected, setSelected] = useState<number | null>(null);
+	const [showSubmitButton, setShowSubmitButton] = useState(true);
+	const [showErrorMessage, setShowErrorMessage] = useState(false);
 
 	const [answerState, setAnswerState] = useState<AnswerState>({
 		correctAnswer: '',
@@ -65,6 +69,7 @@ export default function Questions({ category }: CategoryProps) {
 
 		setSelected(index);
 		setChoice(option);
+		setShowErrorMessage(false);
 		setAnswerState((prevState) => {
 			prevState.correctAnswer = questionData.answer;
 			prevState.correctAnswerIndex = questionData.options.indexOf(answer);
@@ -76,8 +81,16 @@ export default function Questions({ category }: CategoryProps) {
 		// console.log('ANSWER STATE:', answerState);
 	};
 
-	const handleSubmit = (event: React.MouseEvent<HTMLFormElement>) => {
+	const handleSubmit = (event: React.MouseEvent<HTMLButtonElement>) => {
 		event.preventDefault();
+
+		// Show error message
+		if (!choice) {
+			setShowErrorMessage(true);
+			return;
+		}
+
+		setShowSubmitButton(false);
 
 		if (choice === answerState.correctAnswer) {
 			// console.log('CORRECT ANSWER');
@@ -95,10 +108,25 @@ export default function Questions({ category }: CategoryProps) {
 		}
 	};
 
-	// console.log('SCORE:', score);
+	const handleNextQuestion = (event: React.MouseEvent<HTMLButtonElement>) => {
+		event.preventDefault();
+
+		setChoice('');
+		setSelected(null);
+		setAnswerState((prevState) => {
+			prevState.correctAnswer = '';
+			prevState.correctAnswerIndex = null;
+			prevState.isCorrect = null;
+			return { ...prevState };
+		});
+		setShowSubmitButton(true);
+		setQuestionNumber(questionNumber + 1);
+	};
+
+	console.log('SCORE:', score);
 
 	return (
-		<form onSubmit={handleSubmit}>
+		<form>
 			<div className='questionWrapper'>
 				<p>{`Question ${questionNumber + 1} of ${quiz.questions.length}`}</p>
 				<h2>{questionData.question}</h2>
@@ -144,9 +172,22 @@ export default function Questions({ category }: CategoryProps) {
 					);
 				})}
 			</ul>
-			<button type='submit' className='submitButton'>
-				Submit Answer
-			</button>
+			{showSubmitButton ? (
+				<Button
+					onclick={handleSubmit}
+					className='submitButton'
+					text='Submit Answer'
+				/>
+			) : (
+				<Button
+					onclick={handleNextQuestion}
+					className='submitButton'
+					text='Next Question'
+				/>
+			)}
+			{showErrorMessage && (
+				<ErrorMsg errorIcon={errorIcon} message='Please select an answer' />
+			)}
 		</form>
 	);
 }

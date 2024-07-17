@@ -1,0 +1,19 @@
+.errorMessage {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5rem;
+
+	img {
+		height: 32px;
+		width: 32px;
+	}
+
+	p {
+		font-size: var(--fs-heading-xxs);
+		font-weight: var(--fw-regular);
+		line-height: var(--lh-heading-xs);
+		color: var(--clr-neutral-white);
+	}
+}
