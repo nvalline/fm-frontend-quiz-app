@@ -125,6 +125,10 @@ export default function Questions({ category }: CategoryProps) {
 								onClick={(event) => handleChoice(event, index, option)}
 								className={`optionButton ${
 									selected === index ? 'selected' : ''
+								} ${
+									showCheckMark && selected === index ? 'selected correct' : ''
+								} ${
+									showXMark && selected === index ? 'selected incorrect' : ''
 								}`}
 							>
 								<span className='optionIdentifier'>

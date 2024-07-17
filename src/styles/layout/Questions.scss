@@ -114,6 +114,24 @@ form {
 					color: var(--clr-neutral-white);
 				}
 			}
+
+			.optionButton.selected.correct {
+				outline: 3px solid var(--clr-primary-green);
+
+				.optionIdentifier {
+					background-color: var(--clr-primary-green);
+					color: var(--clr-neutral-white);
+				}
+			}
+
+			.optionButton.selected.incorrect {
+				outline: 3px solid var(--clr-primary-red);
+
+				.optionIdentifier {
+					background-color: var(--clr-primary-red);
+					color: var(--clr-neutral-white);
+				}
+			}
 		}
 	}
 
