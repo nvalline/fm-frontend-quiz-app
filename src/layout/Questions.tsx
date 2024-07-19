@@ -63,10 +63,6 @@ export default function Questions({
 	const questionData = quiz.questions[questionNumber];
 	const questionsLength = quiz.questions.length;
 
-	// console.log('QUESTIONS', questionsLength);
-
-	// console.log('QUESTION DATA', questionData);
-
 	const handleChoice = (
 		event: React.MouseEvent<HTMLButtonElement>,
 		index: number,
@@ -84,10 +80,6 @@ export default function Questions({
 			prevState.correctAnswerIndex = questionData.options.indexOf(answer);
 			return { ...prevState };
 		});
-
-		// console.log('INDEX:', index);
-		// console.log('EVENT:', option);
-		// console.log('ANSWER STATE:', answerState);
 	};
 
 	const handleSubmit = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -102,14 +94,12 @@ export default function Questions({
 		setShowSubmitButton(false);
 
 		if (choice === answerState.correctAnswer) {
-			// console.log('CORRECT ANSWER');
 			setAnswerState((prevState) => {
 				prevState.isCorrect = true;
 				return { ...prevState };
 			});
 			setScore(score + 1);
 		} else {
-			// console.log('WRONG ANSWER');
 			setAnswerState((prevState) => {
 				prevState.isCorrect = false;
 				return { ...prevState };
@@ -120,11 +110,7 @@ export default function Questions({
 	const handleNextQuestion = (event: React.MouseEvent<HTMLButtonElement>) => {
 		event.preventDefault();
 
-		console.log('QUESTION #:', questionNumber + 1);
-		console.log('QUESTION LENGTH:', questionsLength);
-
 		if (questionNumber + 1 === questionsLength) {
-			console.log('HIT END');
 			setShowScoreboard(true);
 			return;
 		}
@@ -140,8 +126,6 @@ export default function Questions({
 		setShowSubmitButton(true);
 		setQuestionNumber(questionNumber + 1);
 	};
-
-	console.log('SCORE:', score);
 
 	return (
 		<form>
