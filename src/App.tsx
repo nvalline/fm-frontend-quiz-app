@@ -5,6 +5,7 @@ import { useThemeContext } from './contexts/themeContext';
 
 // Components
 import Header from './layout/Header';
+import Scoreboard from './layout/Scoreboard';
 import Questions from './layout/Questions';
 import Welcome from './layout/Welcome';
 
@@ -18,7 +19,9 @@ function App() {
 	const { theme } = useThemeContext();
 	const { setData } = useDataContext();
 	const navigate = useNavigate();
-	const [searchParams, setSearchParams] = useSearchParams();
+	const [score, setScore] = useState<number>(0);
+	const [showScoreboard, setShowScoreboard] = useState<boolean>(false);
+	const [searchParams] = useSearchParams();
 	const [paramsQuery, setParamsQuery] = useState<string>();
 
 	const navigateToCategory = useCallback(
@@ -49,13 +52,21 @@ function App() {
 		}
 
 		setParamsQuery(params);
-	}, [navigateToCategory, setData, searchParams, setSearchParams]);
+	}, [navigateToCategory, setData, searchParams]);
 
 	return (
 		<div>
 			<Header category={paramsQuery} />
 			<section>
-				{(paramsQuery && <Questions category={paramsQuery} />) ||
+				{(showScoreboard && <Scoreboard score={score} />) ||
+					(paramsQuery && (
+						<Questions
+							category={paramsQuery}
+							score={score}
+							setScore={setScore}
+							setShowScoreboard={setShowScoreboard}
+						/>
+					)) ||
 					(!paramsQuery && <Welcome navigateToCategory={navigateToCategory} />)}
 			</section>
 		</div>

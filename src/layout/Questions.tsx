@@ -10,21 +10,28 @@ import ErrorMsg from '../components/ErrorMsg';
 // Styles
 import '../styles/layout/Questions.scss';
 
-type CategoryProps = {
-	category: string;
-};
-
 type AnswerState = {
 	correctAnswer: string;
 	correctAnswerIndex: number | null;
 	isCorrect: boolean | null;
 };
 
-export default function Questions({ category }: CategoryProps) {
+type CategoryProps = {
+	category: string;
+	score: number;
+	setScore: React.Dispatch<React.SetStateAction<number>>;
+	setShowScoreboard: React.Dispatch<React.SetStateAction<boolean>>;
+};
+
+export default function Questions({
+	category,
+	score,
+	setScore,
+	setShowScoreboard
+}: CategoryProps) {
 	const { data } = useDataContext();
 	const [choice, setChoice] = useState<string>('');
 	const [questionNumber, setQuestionNumber] = useState<number>(0);
-	const [score, setScore] = useState<number>(0);
 	const [selected, setSelected] = useState<number | null>(null);
 	const [showSubmitButton, setShowSubmitButton] = useState(true);
 	const [showErrorMessage, setShowErrorMessage] = useState(false);
@@ -36,7 +43,6 @@ export default function Questions({ category }: CategoryProps) {
 	});
 
 	const quizData = JSON.parse(JSON.stringify(data.quizzes));
-
 	let quiz;
 
 	switch (category) {
@@ -55,6 +61,9 @@ export default function Questions({ category }: CategoryProps) {
 	}
 
 	const questionData = quiz.questions[questionNumber];
+	const questionsLength = quiz.questions.length;
+
+	// console.log('QUESTIONS', questionsLength);
 
 	// console.log('QUESTION DATA', questionData);
 
@@ -111,6 +120,15 @@ export default function Questions({ category }: CategoryProps) {
 	const handleNextQuestion = (event: React.MouseEvent<HTMLButtonElement>) => {
 		event.preventDefault();
 
+		console.log('QUESTION #:', questionNumber + 1);
+		console.log('QUESTION LENGTH:', questionsLength);
+
+		if (questionNumber + 1 === questionsLength) {
+			console.log('HIT END');
+			setShowScoreboard(true);
+			return;
+		}
+
 		setChoice('');
 		setSelected(null);
 		setAnswerState((prevState) => {
@@ -128,7 +146,7 @@ export default function Questions({ category }: CategoryProps) {
 	return (
 		<form>
 			<div className='questionWrapper'>
-				<p>{`Question ${questionNumber + 1} of ${quiz.questions.length}`}</p>
+				<p>{`Question ${questionNumber + 1} of ${questionsLength}`}</p>
 				<h2>{questionData.question}</h2>
 				<progress
 					value={questionNumber + 1}
