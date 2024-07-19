@@ -49,7 +49,8 @@ $font-families: (
 
 $font-sizes: (
 	display: (
-		md: 9rem
+		md: 9rem,
+		sm: 5.5rem
 	),
 	heading: (
 		xl: 4rem,
@@ -60,6 +61,7 @@ $font-sizes: (
 		xxs: 1.125rem
 	),
 	body: (
+		lg: 1.125rem,
 		md: 0.875rem,
 		sm: 0.75rem
 	)
@@ -80,7 +82,8 @@ $line-heights: (
 	heading-lg: 120%,
 	heading-sm: 110%,
 	heading-xs: 100%,
-	body: 150%
+	body-lg: 150%,
+	body-sm: 100%
 );
 
 // ----- Misc Variables -----

@@ -134,19 +134,4 @@ form {
 			}
 		}
 	}
-
-	.submitButton {
-		height: 56px;
-		width: 100%;
-		margin-bottom: 0.75rem;
-		padding: 0.75rem;
-		background-color: var(--clr-primary-purple);
-		border: none;
-		border-radius: 12px;
-		font-size: var(--fs-heading-xxs);
-		font-weight: var(--fw-medium);
-		line-height: var(--lh-heading-xs);
-		color: var(--clr-neutral-white);
-		cursor: pointer;
-	}
 }

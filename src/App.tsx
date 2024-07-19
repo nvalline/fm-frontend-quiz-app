@@ -58,7 +58,9 @@ function App() {
 		<div>
 			<Header category={paramsQuery} />
 			<section>
-				{(showScoreboard && <Scoreboard score={score} />) ||
+				{(showScoreboard && (
+					<Scoreboard category={paramsQuery} score={score} />
+				)) ||
 					(paramsQuery && (
 						<Questions
 							category={paramsQuery}
