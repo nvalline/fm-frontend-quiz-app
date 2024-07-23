@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
-import { useNavigate, useSearchParams } from 'react-router-dom';
+import { useNavigate, Routes, Route } from 'react-router-dom';
 import { useDataContext } from './contexts/dataContext';
 import { useThemeContext } from './contexts/themeContext';
 
@@ -19,10 +19,8 @@ function App() {
 	const { theme } = useThemeContext();
 	const { setData } = useDataContext();
 	const navigate = useNavigate();
+	const [quizCategory, setQuizCategory] = useState<string>('');
 	const [score, setScore] = useState<number>(0);
-	const [showScoreboard, setShowScoreboard] = useState<boolean>(false);
-	const [searchParams] = useSearchParams();
-	const [paramsQuery, setParamsQuery] = useState<string>();
 
 	const navigateToCategory = useCallback(
 		(category: string) => {
@@ -32,7 +30,8 @@ function App() {
 				category === 'JavaScript' ||
 				category === 'Accessibility'
 			) {
-				navigate({ search: `?c=${category}` });
+				setQuizCategory(category);
+				navigate(`/${category}`);
 			} else {
 				navigate('/');
 			}
@@ -40,36 +39,41 @@ function App() {
 		[navigate]
 	);
 
+	const showScoreboard = () => {
+		navigate('/scoreboard');
+	};
+
 	console.log('THEME', theme);
 
 	useEffect(() => {
 		setData(quizData);
-
-		const params = searchParams.get('c')?.toString();
-
-		if (params) {
-			navigateToCategory(params);
-		}
-
-		setParamsQuery(params);
-	}, [navigateToCategory, setData, searchParams]);
+	}, [setData]);
 
 	return (
 		<div>
-			<Header category={paramsQuery} />
+			<Header category={quizCategory} />
 			<section>
-				{(showScoreboard && (
-					<Scoreboard category={paramsQuery} score={score} />
-				)) ||
-					(paramsQuery && (
-						<Questions
-							category={paramsQuery}
-							score={score}
-							setScore={setScore}
-							setShowScoreboard={setShowScoreboard}
-						/>
-					)) ||
-					(!paramsQuery && <Welcome navigateToCategory={navigateToCategory} />)}
+				<Routes>
+					<Route
+						path='/'
+						element={<Welcome navigateToCategory={navigateToCategory} />}
+					/>
+					<Route
+						path={`/${quizCategory}`}
+						element={
+							<Questions
+								category={quizCategory}
+								score={score}
+								setScore={setScore}
+								setShowScoreboard={showScoreboard}
+							/>
+						}
+					/>
+					<Route
+						path={'/scoreboard'}
+						element={<Scoreboard category={quizCategory} score={score} />}
+					/>
+				</Routes>
 			</section>
 		</div>
 	);

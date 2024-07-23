@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import { useDataContext } from '../contexts/dataContext';
 
 // Components
@@ -19,8 +20,7 @@ type ScoreboardProps = {
 };
 
 export default function Scoreboard({ category, score }: ScoreboardProps) {
-	console.log('CATEGORY:', category);
-
+	const navigate = useNavigate();
 	const { data } = useDataContext();
 
 	const quizData = JSON.parse(JSON.stringify(data.quizzes));
@@ -28,10 +28,6 @@ export default function Scoreboard({ category, score }: ScoreboardProps) {
 	const currentQuiz = quizData.filter((quiz: Quiz) => quiz.title === category);
 
 	const numberOfQuestions = currentQuiz[0].questions.length;
-
-	const handlePlayAgain = () => {
-		console.log('REPLAY');
-	};
 
 	return (
 		<div className='scoreboard'>
@@ -57,7 +53,7 @@ export default function Scoreboard({ category, score }: ScoreboardProps) {
 			</div>
 			<Button
 				text='Play Again'
-				onclick={handlePlayAgain}
+				onclick={() => navigate('/')}
 				className='submitButton'
 			/>
 		</div>
