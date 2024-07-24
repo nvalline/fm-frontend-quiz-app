@@ -16,7 +16,7 @@ import './App.scss';
 import quizData from '../data/data.json';
 
 function App() {
-	const { theme } = useThemeContext();
+	const { isDarkTheme } = useThemeContext();
 	const { setData } = useDataContext();
 	const navigate = useNavigate();
 	const [quizCategory, setQuizCategory] = useState<string>('');
@@ -43,14 +43,14 @@ function App() {
 		navigate('/scoreboard');
 	};
 
-	console.log('THEME', theme);
+	console.log('THEME', isDarkTheme);
 
 	useEffect(() => {
 		setData(quizData);
 	}, [setData]);
 
 	return (
-		<div>
+		<main>
 			<Header category={quizCategory} />
 			<section>
 				<Routes>
@@ -75,7 +75,7 @@ function App() {
 					/>
 				</Routes>
 			</section>
-		</div>
+		</main>
 	);
 }
 

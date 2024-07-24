@@ -1,25 +1,25 @@
 import React, { createContext, useContext, useState } from 'react';
 
 type ThemeContext = {
-	theme: Theme;
-	setTheme: React.Dispatch<React.SetStateAction<Theme>>;
+	isDarkTheme: Theme;
+	setIsDarkTheme: React.Dispatch<React.SetStateAction<Theme>>;
 };
 
 type ThemeContextProviderProps = {
 	children: React.ReactNode;
 };
 
-type Theme = 'dark' | 'light';
+type Theme = boolean;
 
 const ThemeContext = createContext<ThemeContext | null>(null);
 
 export default function ThemeContextProvider({
 	children
 }: ThemeContextProviderProps) {
-	const [theme, setTheme] = useState<Theme>('dark');
+	const [isDarkTheme, setIsDarkTheme] = useState<Theme>(true);
 
 	return (
-		<ThemeContext.Provider value={{ theme, setTheme }}>
+		<ThemeContext.Provider value={{ isDarkTheme, setIsDarkTheme }}>
 			{children}
 		</ThemeContext.Provider>
 	);
