@@ -1,3 +1,5 @@
+import { useThemeContext } from '../contexts/themeContext';
+
 // Styles
 import '../styles/components/ErrorMsg.scss';
 
@@ -7,10 +9,12 @@ type ErrorMsgProps = {
 };
 
 export default function ErrorMsg({ errorIcon, message }: ErrorMsgProps) {
+	const { isDarkTheme } = useThemeContext();
+
 	return (
 		<div className='errorMessage'>
 			<img src={errorIcon} alt='incorrect' />
-			<p>{message}</p>
+			<p className={isDarkTheme ? `${'darkTheme'}` : ''}>{message}</p>
 		</div>
 	);
 }

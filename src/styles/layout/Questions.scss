@@ -7,7 +7,7 @@ form {
 			font-size: var(--fs-body-md);
 			font-style: italic;
 			line-height: var(--lh-body);
-			color: var(--clr-primary-bluish-light);
+			color: var(--clr-neutral-gray-navy);
 		}
 
 		h2 {
@@ -15,7 +15,7 @@ form {
 			font-size: var(--fs-heading-xs);
 			font-weight: var(--fw-medium);
 			line-height: var(--lh-heading-lg);
-			color: var(--clr-neutral-white);
+			color: var(--clr-neutral-navy-dark);
 		}
 
 		.progressBar {
@@ -28,7 +28,7 @@ form {
 			display: flex;
 			align-items: center;
 			justify-content: center;
-			background-color: var(--clr-neutral-navy);
+			background-color: var(--clr-neutral-white);
 			border: none;
 			border-radius: 999px;
 			overflow: hidden;
@@ -41,7 +41,7 @@ form {
 		}
 
 		.progressBar::-webkit-progress-bar {
-			background-color: var(--clr-neutral-navy);
+			background-color: var(--clr-neutral-white);
 			border-radius: 104px;
 		}
 
@@ -75,14 +75,14 @@ form {
 				grid-template-columns: 40px auto 32px;
 				gap: 1rem;
 				align-items: center;
-				background-color: var(--clr-neutral-navy);
+				background-color: var(--clr-neutral-white);
 				border: none;
 				border-radius: 12px;
 				font-size: var(--fs-heading-xxs);
 				font-weight: var(--fw-medium);
 				line-height: var(--lh-heading-xs);
 				text-align: left;
-				color: var(--clr-neutral-white);
+				color: var(--clr-neutral-navy-dark);
 				cursor: pointer;
 
 				.optionIdentifier {
@@ -103,6 +103,67 @@ form {
 				.statusIcon img {
 					height: 32px;
 					width: 32px;
+				}
+			}
+
+			.optionButton.selected {
+				outline: 3px solid var(--clr-primary-purple);
+
+				.optionIdentifier {
+					background-color: var(--clr-primary-purple);
+					color: var(--clr-neutral-white);
+				}
+			}
+
+			.optionButton.selected.correct {
+				outline: 3px solid var(--clr-primary-green);
+
+				.optionIdentifier {
+					background-color: var(--clr-primary-green);
+					color: var(--clr-neutral-white);
+				}
+			}
+
+			.optionButton.selected.incorrect {
+				outline: 3px solid var(--clr-primary-red);
+
+				.optionIdentifier {
+					background-color: var(--clr-primary-red);
+					color: var(--clr-neutral-white);
+				}
+			}
+		}
+	}
+}
+
+form.darkTheme {
+	.questionWrapper {
+		p {
+			color: var(--clr-primary-bluish-light);
+		}
+
+		h2 {
+			color: var(--clr-neutral-white);
+		}
+
+		.progressBar {
+			background-color: var(--clr-neutral-navy);
+		}
+
+		.progressBar::-webkit-progress-bar {
+			background-color: var(--clr-neutral-navy);
+		}
+	}
+
+	.optionsWrapper {
+		li {
+			.optionButton {
+				background-color: var(--clr-neutral-navy);
+				color: var(--clr-neutral-white);
+
+				.optionIdentifier {
+					background-color: var(--clr-neutral-gray-light);
+					color: var(--clr-neutral-gray-navy);
 				}
 			}
 

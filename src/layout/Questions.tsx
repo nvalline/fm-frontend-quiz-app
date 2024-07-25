@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useDataContext } from '../contexts/dataContext';
+import { useThemeContext } from '../contexts/themeContext';
 import correctIcon from '../assets/images/icon-correct.svg';
 import errorIcon from '../assets/images/icon-error.svg';
 
@@ -30,6 +31,7 @@ export default function Questions({
 	setShowScoreboard
 }: CategoryProps) {
 	const { data } = useDataContext();
+	const { isDarkTheme } = useThemeContext();
 	const [choice, setChoice] = useState<string>('');
 	const [questionNumber, setQuestionNumber] = useState<number>(0);
 	const [selected, setSelected] = useState<number | null>(null);
@@ -128,7 +130,7 @@ export default function Questions({
 	};
 
 	return (
-		<form>
+		<form className={isDarkTheme ? `${'darkTheme'}` : ''}>
 			<div className='questionWrapper'>
 				<p>{`Question ${questionNumber + 1} of ${questionsLength}`}</p>
 				<h2>{questionData.question}</h2>

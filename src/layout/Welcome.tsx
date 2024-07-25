@@ -1,4 +1,5 @@
 import { useDataContext } from '../contexts/dataContext';
+import { useThemeContext } from '../contexts/themeContext';
 
 // Components
 import CategoryLogo from '../components/CategoryLogo';
@@ -20,11 +21,12 @@ export default function Welcome({
 	navigateToCategory
 }: NavigateToCategoryProps) {
 	const { data } = useDataContext();
+	const { isDarkTheme } = useThemeContext();
 
 	const quizData = JSON.parse(JSON.stringify(data.quizzes));
 
 	return (
-		<>
+		<div className={isDarkTheme ? 'welcome darkTheme' : 'welcome'}>
 			<div className='titleWrapper'>
 				<h1 className='title'>
 					Welcome to the <span>Frontend Quiz!</span>
@@ -44,6 +46,6 @@ export default function Welcome({
 					);
 				})}
 			</div>
-		</>
+		</div>
 	);
 }

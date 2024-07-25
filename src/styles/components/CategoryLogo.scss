@@ -10,7 +10,6 @@
 		align-items: center;
 		justify-content: center;
 		border-radius: 4px;
-		background-color: var(--clr-neutral-white);
 
 		img {
 			height: 28.57px;
@@ -22,6 +21,10 @@
 		font-size: var(--fs-heading-xxs);
 		font-weight: var(--fw-medium);
 		line-height: var(--lh-heading-sm);
+		color: var(--clr-neutral-navy-dark);
+	}
+
+	h2.darkTheme {
 		color: var(--clr-neutral-white);
 	}
 }

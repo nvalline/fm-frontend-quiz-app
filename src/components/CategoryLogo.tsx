@@ -1,3 +1,5 @@
+import { useThemeContext } from '../contexts/themeContext';
+
 // Styles
 import '../styles/components/CategoryLogo.scss';
 
@@ -8,6 +10,7 @@ export default function CategoryLogo({
 	icon: string;
 	category: string;
 }) {
+	const { isDarkTheme } = useThemeContext();
 	const formatedIconPath = icon.slice(8);
 
 	let bgColor = '';
@@ -27,7 +30,13 @@ export default function CategoryLogo({
 			<div className='iconWrapper' style={{ backgroundColor: bgColor }}>
 				<img src={formatedIconPath} alt={category} height={40} width={40} />
 			</div>
-			<h2>{category}</h2>
+			<h2
+				className={
+					isDarkTheme ? `${'iconHeading'} ${'darkTheme'}` : 'iconHeading'
+				}
+			>
+				{category}
+			</h2>
 		</div>
 	);
 }

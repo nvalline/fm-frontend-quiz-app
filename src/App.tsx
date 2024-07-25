@@ -49,6 +49,10 @@ function App() {
 		setData(quizData);
 	}, [setData]);
 
+	useEffect(() => {
+		document.body.classList.toggle('darkTheme', isDarkTheme);
+	}, [isDarkTheme]);
+
 	return (
 		<main>
 			<Header category={quizCategory} />

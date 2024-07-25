@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { useDataContext } from '../contexts/dataContext';
+import { useThemeContext } from '../contexts/themeContext';
 
 // Components
 import Button from '../components/Button';
@@ -22,6 +23,7 @@ type ScoreboardProps = {
 export default function Scoreboard({ category, score }: ScoreboardProps) {
 	const navigate = useNavigate();
 	const { data } = useDataContext();
+	const { isDarkTheme } = useThemeContext();
 
 	const quizData = JSON.parse(JSON.stringify(data.quizzes));
 
@@ -30,7 +32,7 @@ export default function Scoreboard({ category, score }: ScoreboardProps) {
 	const numberOfQuestions = currentQuiz[0].questions.length;
 
 	return (
-		<div className='scoreboard'>
+		<div className={isDarkTheme ? `${'scoreboard'} ${'darkTheme'}` : ''}>
 			<div className='scoreboard__heading'>
 				<h2 className='scoreboard__title'>
 					Quiz completed
