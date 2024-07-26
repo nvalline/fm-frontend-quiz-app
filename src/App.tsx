@@ -16,7 +16,7 @@ import './App.scss';
 import quizData from '../data/data.json';
 
 function App() {
-	const { isDarkTheme } = useThemeContext();
+	const { isDarkTheme, setIsDarkTheme } = useThemeContext();
 	const { setData } = useDataContext();
 	const navigate = useNavigate();
 	const [quizCategory, setQuizCategory] = useState<string>('');
@@ -49,7 +49,17 @@ function App() {
 		setData(quizData);
 	}, [setData]);
 
+	// Check local storage for dark mode setting
 	useEffect(() => {
+		const darkMode = localStorage.getItem('quizDarkMode');
+
+		if (darkMode === 'light') {
+			setIsDarkTheme(false);
+		}
+	}, [setIsDarkTheme]);
+
+	useEffect(() => {
+		localStorage.setItem('quizDarkMode', isDarkTheme ? 'dark' : 'light');
 		document.body.classList.toggle('darkTheme', isDarkTheme);
 	}, [isDarkTheme]);
 
