@@ -1,3 +1,5 @@
+@use '../abstracts/' as *;
+
 .logoWrapper {
 	display: flex;
 	align-items: center;
@@ -11,17 +13,31 @@
 		justify-content: center;
 		border-radius: 4px;
 
+		@include breakpoint-up(md) {
+			height: 3.5rem;
+			width: 3.5rem;
+		}
+
 		img {
 			height: 28.57px;
 			width: 28.57px;
+
+			@include breakpoint-up(md) {
+				height: 40px;
+				width: 40px;
+			}
 		}
 	}
 
 	h2 {
 		font-size: var(--fs-heading-xxs);
 		font-weight: var(--fw-medium);
-		line-height: var(--lh-heading-sm);
+		line-height: var(--lh-heading-xs);
 		color: var(--clr-neutral-navy-dark);
+
+		@include breakpoint-up(md) {
+			font-size: var(--fs-heading-sm);
+		}
 	}
 
 	h2.darkTheme {

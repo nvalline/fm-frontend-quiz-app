@@ -1,10 +1,15 @@
+@use '../abstracts/' as *;
+
 header {
 	padding: 1rem 1.5rem;
-	height: 72px;
 	width: 100%;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+
+	@include breakpoint-up(md) {
+		padding: 2.5rem 4rem;
+	}
 
 	.themeSwitch {
 		display: flex;

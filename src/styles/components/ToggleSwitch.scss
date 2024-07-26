@@ -1,8 +1,15 @@
+@use '../abstracts/' as *;
+
 .toggle {
 	position: relative;
 	display: block;
 	height: 20px;
 	width: 32px;
+
+	@include breakpoint-up(md) {
+		height: 28px;
+		width: 48px;
+	}
 
 	input {
 		height: 0;
@@ -11,6 +18,10 @@
 
 		&:checked + .slider::before {
 			transform: translateX(12px);
+
+			@include breakpoint-up(md) {
+				transform: translateX(20px);
+			}
 		}
 	}
 
@@ -34,6 +45,11 @@
 			border-radius: 50%;
 			background-color: var(--clr-neutral-white);
 			transition: 400ms;
+
+			@include breakpoint-up(md) {
+				height: 20px;
+				width: 20px;
+			}
 		}
 	}
 }

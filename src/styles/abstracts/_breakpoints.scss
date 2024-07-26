@@ -1,0 +1,40 @@
+/* BREAKPOINTS
+--------------------------------*/
+
+// Breakpoint pixels: 768px, 860px
+$breakpoints-up: (
+	'md': '48em',
+	'lg': '53.75em'
+);
+
+@mixin breakpoint-up($size) {
+	@media (min-width: map-get($breakpoints-up, $size )) {
+		@content;
+	}
+}
+
+// Custom breakpoint sizing
+@mixin breakpoint-up-cust($size) {
+	@media (min-width: #{$size}em) {
+		@content;
+	}
+}
+
+// Breakpoint pixels: 767px, 859px
+$breakpoints-down: (
+	'sm': '47.9375em',
+	'md': '53.6875em'
+);
+
+@mixin breakpoint-down($size) {
+	@media (max-width: map-get($breakpoints-down, $size )) {
+		@content;
+	}
+}
+
+// Custom breakpoint sizing
+@mixin breakpoint-down-cust($size) {
+	@media (man-width: #{$size}em) {
+		@content;
+	}
+}
