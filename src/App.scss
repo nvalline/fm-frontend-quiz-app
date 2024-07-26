@@ -11,8 +11,19 @@ body {
 	font-family: var(--ff-primary-rubik);
 	font-optical-sizing: auto;
 
+	@include breakpoint-up(md) {
+		background-image: url('./assets/images/pattern-background-tablet-light.svg');
+	}
+
 	section {
+		margin: 0 auto;
+		max-width: 23.4375em;
 		padding: 2rem 1.5rem;
+
+		@include breakpoint-up(md) {
+			max-width: 48em;
+			padding: 0.5625rem 4rem 3.5625rem;
+		}
 
 		.submitButton {
 			height: 56px;
@@ -35,6 +46,10 @@ body {
 body.darkTheme {
 	background-color: var(--clr-neutral-navy-dark);
 	background-image: url('./assets/images/pattern-background-mobile-dark.svg');
+
+	@include breakpoint-up(md) {
+		background-image: url('./assets/images/pattern-background-tablet-dark.svg');
+	}
 
 	section {
 		.submitButton {

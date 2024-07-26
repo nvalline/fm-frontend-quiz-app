@@ -5,6 +5,10 @@
 	align-items: center;
 	gap: 1rem;
 
+	@include breakpoint-up(md) {
+		gap: 2rem;
+	}
+
 	.iconWrapper {
 		height: 2.5rem;
 		width: 2.5rem;
