@@ -67,6 +67,7 @@ form {
 
 		li {
 			width: 100%;
+			box-shadow: 0 16px 40px var(--clr-shadow-gray-navy);
 
 			.optionButton {
 				width: 100%;
@@ -157,6 +158,8 @@ form.darkTheme {
 
 	.optionsWrapper {
 		li {
+			box-shadow: 0 16px 40px var(--clr-shadow-navy-dark);
+
 			.optionButton {
 				background-color: var(--clr-neutral-navy);
 				color: var(--clr-neutral-white);
