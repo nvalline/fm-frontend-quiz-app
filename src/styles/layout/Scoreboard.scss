@@ -23,6 +23,7 @@
 		gap: 1rem;
 		background-color: var(--clr-neutral-white);
 		border-radius: 12px;
+		box-shadow: 0 16px 40px var(--clr-shadow-gray-navy);
 
 		> h3 {
 			font-size: var(--fs-display-sm);
@@ -47,6 +48,7 @@
 
 	.scoreboard__board {
 		background-color: var(--clr-neutral-navy);
+		box-shadow: 0 16px 40px var(--clr-shadow-navy-dark);
 
 		> h3 {
 			color: var(--clr-neutral-white);
