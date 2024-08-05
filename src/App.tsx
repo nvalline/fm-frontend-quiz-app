@@ -4,7 +4,6 @@ import { useDataContext } from './contexts/dataContext';
 import { useThemeContext } from './contexts/themeContext';
 
 // Components
-import Header from './layout/Header';
 import Scoreboard from './layout/Scoreboard';
 import Questions from './layout/Questions';
 import Welcome from './layout/Welcome';
@@ -65,30 +64,27 @@ function App() {
 
 	return (
 		<main>
-			<Header category={quizCategory} />
-			<section>
-				<Routes>
-					<Route
-						path='/'
-						element={<Welcome navigateToCategory={navigateToCategory} />}
-					/>
-					<Route
-						path={`/${quizCategory}`}
-						element={
-							<Questions
-								category={quizCategory}
-								score={score}
-								setScore={setScore}
-								setShowScoreboard={showScoreboard}
-							/>
-						}
-					/>
-					<Route
-						path={'/scoreboard'}
-						element={<Scoreboard category={quizCategory} score={score} />}
-					/>
-				</Routes>
-			</section>
+			<Routes>
+				<Route
+					path='/'
+					element={<Welcome navigateToCategory={navigateToCategory} />}
+				/>
+				<Route
+					path={`/${quizCategory}`}
+					element={
+						<Questions
+							category={quizCategory}
+							score={score}
+							setScore={setScore}
+							setShowScoreboard={showScoreboard}
+						/>
+					}
+				/>
+				<Route
+					path={'/scoreboard'}
+					element={<Scoreboard category={quizCategory} score={score} />}
+				/>
+			</Routes>
 		</main>
 	);
 }

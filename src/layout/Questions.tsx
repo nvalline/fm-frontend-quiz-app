@@ -7,6 +7,7 @@ import errorIcon from '../assets/images/icon-error.svg';
 // Components
 import Button from '../components/Button';
 import ErrorMsg from '../components/ErrorMsg';
+import Header from './Header';
 
 // Styles
 import '../styles/layout/Questions.scss';
@@ -130,68 +131,77 @@ export default function Questions({
 	};
 
 	return (
-		<form className={isDarkTheme ? `${'darkTheme'}` : ''}>
-			<div className='questionWrapper'>
-				<p>{`Question ${questionNumber + 1} of ${questionsLength}`}</p>
-				<h2>{questionData.question}</h2>
-				<progress
-					value={questionNumber + 1}
-					max={quiz.questions.length}
-					className='progressBar'
-				></progress>
-			</div>
-			<ul className='optionsWrapper'>
-				{questionData.options.map((option: string, index: number) => {
-					const showCheckMark =
-						(answerState.isCorrect === true &&
-							answerState.correctAnswerIndex === index) ||
-						(answerState.isCorrect === false &&
-							answerState.correctAnswerIndex === index);
-					const showXMark =
-						answerState.isCorrect === false && selected === index;
+		<>
+			<Header category={category} />
+			<section>
+				<form className={isDarkTheme ? `${'darkTheme'}` : ''}>
+					<div className='questionWrapper'>
+						<p>{`Question ${questionNumber + 1} of ${questionsLength}`}</p>
+						<h2>{questionData.question}</h2>
+						<progress
+							value={questionNumber + 1}
+							max={quiz.questions.length}
+							className='progressBar'
+						></progress>
+					</div>
+					<ul className='optionsWrapper'>
+						{questionData.options.map((option: string, index: number) => {
+							const showCheckMark =
+								(answerState.isCorrect === true &&
+									answerState.correctAnswerIndex === index) ||
+								(answerState.isCorrect === false &&
+									answerState.correctAnswerIndex === index);
+							const showXMark =
+								answerState.isCorrect === false && selected === index;
 
-					return (
-						<li key={index}>
-							<button
-								value={option}
-								onClick={(event) => handleChoice(event, index, option)}
-								className={`optionButton ${
-									selected === index ? 'selected' : ''
-								} ${
-									showCheckMark && selected === index ? 'selected correct' : ''
-								} ${
-									showXMark && selected === index ? 'selected incorrect' : ''
-								}`}
-							>
-								<span className='optionIdentifier'>
-									{String.fromCharCode(65 + index)}
-								</span>
-								{option}
-								<span className='statusIcon'>
-									{showCheckMark && <img src={correctIcon} alt='correct' />}
-									{showXMark && <img src={errorIcon} alt='incorrect' />}
-								</span>
-							</button>
-						</li>
-					);
-				})}
-			</ul>
-			{showSubmitButton ? (
-				<Button
-					onclick={handleSubmit}
-					className='submitButton'
-					text='Submit Answer'
-				/>
-			) : (
-				<Button
-					onclick={handleNextQuestion}
-					className='submitButton'
-					text='Next Question'
-				/>
-			)}
-			{showErrorMessage && (
-				<ErrorMsg errorIcon={errorIcon} message='Please select an answer' />
-			)}
-		</form>
+							return (
+								<li key={index}>
+									<button
+										value={option}
+										onClick={(event) => handleChoice(event, index, option)}
+										className={`optionButton ${
+											selected === index ? 'selected' : ''
+										} ${
+											showCheckMark && selected === index
+												? 'selected correct'
+												: ''
+										} ${
+											showXMark && selected === index
+												? 'selected incorrect'
+												: ''
+										}`}
+									>
+										<span className='optionIdentifier'>
+											{String.fromCharCode(65 + index)}
+										</span>
+										{option}
+										<span className='statusIcon'>
+											{showCheckMark && <img src={correctIcon} alt='correct' />}
+											{showXMark && <img src={errorIcon} alt='incorrect' />}
+										</span>
+									</button>
+								</li>
+							);
+						})}
+					</ul>
+					{showSubmitButton ? (
+						<Button
+							onclick={handleSubmit}
+							className='submitButton'
+							text='Submit Answer'
+						/>
+					) : (
+						<Button
+							onclick={handleNextQuestion}
+							className='submitButton'
+							text='Next Question'
+						/>
+					)}
+					{showErrorMessage && (
+						<ErrorMsg errorIcon={errorIcon} message='Please select an answer' />
+					)}
+				</form>
+			</section>
+		</>
 	);
 }
