@@ -8,6 +8,7 @@ import CategoryLogo from '../components/CategoryLogo';
 
 // Styles
 import '../styles/layout/Scoreboard.scss';
+import Header from './Header';
 
 type Quiz = {
 	title: string;
@@ -32,32 +33,37 @@ export default function Scoreboard({ category, score }: ScoreboardProps) {
 	const numberOfQuestions = currentQuiz[0].questions.length;
 
 	return (
-		<div className={isDarkTheme ? `${'scoreboard'} ${'darkTheme'}` : ''}>
-			<div className='scoreboard__heading'>
-				<h2 className='scoreboard__title'>
-					Quiz completed
-					<br />
-					<span>You scored...</span>
-				</h2>
-			</div>
-			<div className='scoreboard__board'>
-				{category?.toString() === 'HTML' ||
-				category?.toString() === 'CSS' ||
-				category?.toString() === 'JavaScript' ||
-				category?.toString() === 'Accessibility' ? (
-					<CategoryLogo
-						icon={currentQuiz[0].icon}
-						category={currentQuiz[0].title}
+		<>
+			<Header category={category} />
+			<section>
+				<div className={isDarkTheme ? `${'scoreboard'} ${'darkTheme'}` : ''}>
+					<div className='scoreboard__heading'>
+						<h2 className='scoreboard__title'>
+							Quiz completed
+							<br />
+							<span>You scored...</span>
+						</h2>
+					</div>
+					<div className='scoreboard__board'>
+						{category?.toString() === 'HTML' ||
+						category?.toString() === 'CSS' ||
+						category?.toString() === 'JavaScript' ||
+						category?.toString() === 'Accessibility' ? (
+							<CategoryLogo
+								icon={currentQuiz[0].icon}
+								category={currentQuiz[0].title}
+							/>
+						) : null}
+						<h3>{score}</h3>
+						<p>out of {numberOfQuestions}</p>
+					</div>
+					<Button
+						text='Play Again'
+						onclick={() => navigate('/')}
+						className='submitButton'
 					/>
-				) : null}
-				<h3>{score}</h3>
-				<p>out of {numberOfQuestions}</p>
-			</div>
-			<Button
-				text='Play Again'
-				onclick={() => navigate('/')}
-				className='submitButton'
-			/>
-		</div>
+				</div>
+			</section>
+		</>
 	);
 }
