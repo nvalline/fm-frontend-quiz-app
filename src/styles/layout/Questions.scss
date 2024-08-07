@@ -1,13 +1,24 @@
+@use '../abstracts/' as *;
+
 form {
 	.questionWrapper {
 		margin-bottom: 2.5rem;
+
+		@include breakpoint-up(md) {
+			margin-bottom: 4rem;
+		}
 
 		p {
 			margin-bottom: 0.75rem;
 			font-size: var(--fs-body-md);
 			font-style: italic;
-			line-height: var(--lh-body);
+			line-height: var(--lh-body-lg);
 			color: var(--clr-neutral-gray-navy);
+
+			@include breakpoint-up(md) {
+				margin-bottom: 1.6875rem;
+				font-size: var(--fs-body-xl);
+			}
 		}
 
 		h2 {
@@ -16,6 +27,11 @@ form {
 			font-weight: var(--fw-medium);
 			line-height: var(--lh-heading-lg);
 			color: var(--clr-neutral-navy-dark);
+
+			@include breakpoint-up(md) {
+				margin-bottom: 2.5rem;
+				font-size: var(--fs-heading-md);
+			}
 		}
 
 		.progressBar {
