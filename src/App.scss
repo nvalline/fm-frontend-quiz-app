@@ -29,6 +29,11 @@ body {
 			padding: 0.5625rem 4rem 3.5625rem;
 		}
 
+		@include breakpoint-up(lg) {
+			max-width: 72.5em;
+			padding: 0;
+		}
+
 		.submitButton {
 			width: 100%;
 			margin-bottom: 0.75rem;
