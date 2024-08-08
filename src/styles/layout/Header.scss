@@ -11,6 +11,10 @@ header {
 		padding: 2.5rem 4rem;
 	}
 
+	@include breakpoint-up(lg) {
+		padding: 5.25rem 8.875rem;
+	}
+
 	.themeSwitch {
 		display: flex;
 		align-items: center;
