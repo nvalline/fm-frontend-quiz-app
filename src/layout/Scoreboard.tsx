@@ -54,8 +54,10 @@ export default function Scoreboard({ category, score }: ScoreboardProps) {
 								category={currentQuiz[0].title}
 							/>
 						) : null}
-						<h3>{score}</h3>
-						<p>out of {numberOfQuestions}</p>
+						<div className='scoreboard__score'>
+							<h3>{score}</h3>
+							<p>out of {numberOfQuestions}</p>
+						</div>
 					</div>
 					<Button
 						text='Play Again'
