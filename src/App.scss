@@ -15,6 +15,10 @@ body {
 		background-image: url('./assets/images/pattern-background-tablet-light.svg');
 	}
 
+	@include breakpoint-up(lg) {
+		background-image: url('./assets/images/pattern-background-desktop-light.svg');
+	}
+
 	section {
 		margin: 0 auto;
 		max-width: 23.4375em;
@@ -54,6 +58,10 @@ body.darkTheme {
 
 	@include breakpoint-up(md) {
 		background-image: url('./assets/images/pattern-background-tablet-dark.svg');
+	}
+
+	@include breakpoint-up(lg) {
+		background-image: url('./assets/images/pattern-background-desktop-dark.svg');
 	}
 
 	section {
