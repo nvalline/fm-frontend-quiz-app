@@ -11,6 +11,7 @@ export default function ToggleSwitch() {
 			<input
 				type='checkbox'
 				checked={isDarkTheme}
+				aria-label='dark mode switch'
 				onChange={() => setIsDarkTheme(!isDarkTheme)}
 			/>
 			<span className='slider' />
