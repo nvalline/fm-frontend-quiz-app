@@ -39,7 +39,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
+- Solution URL: [Here](https://www.frontendmentor.io/solutions/react-typescript-and-sass-YUa0xxXYZ0)
 - Live Site URL: [Here](https://nv-frontend-quiz-app.vercel.app/)
 
 ## My process
