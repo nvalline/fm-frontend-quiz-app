@@ -1,10 +1,10 @@
 /* BREAKPOINTS
 --------------------------------*/
 
-// Breakpoint pixels: 768px, 1440px
+// Breakpoint pixels: 768px, 1400px
 $breakpoints-up: (
 	'md': '48em',
-	'lg': '90em'
+	'lg': '87.5em'
 );
 
 @mixin breakpoint-up($size) {
@@ -23,7 +23,7 @@ $breakpoints-up: (
 // Breakpoint pixels: 767px, 1439px
 $breakpoints-down: (
 	'sm': '47.9375em',
-	'md': '89.9375em'
+	'md': '87.4375em'
 );
 
 @mixin breakpoint-down($size) {
