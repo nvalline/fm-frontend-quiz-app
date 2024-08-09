@@ -36,7 +36,11 @@ export default function Scoreboard({ category, score }: ScoreboardProps) {
 		<>
 			<Header category={category} />
 			<section>
-				<div className={isDarkTheme ? `${'scoreboard'} ${'darkTheme'}` : ''}>
+				<div
+					className={
+						isDarkTheme ? `${'scoreboard'} ${'darkTheme'}` : 'scoreboard'
+					}
+				>
 					<div className='scoreboard__heading'>
 						<h2 className='scoreboard__title'>
 							Quiz completed
@@ -44,26 +48,28 @@ export default function Scoreboard({ category, score }: ScoreboardProps) {
 							<span>You scored...</span>
 						</h2>
 					</div>
-					<div className='scoreboard__board'>
-						{category?.toString() === 'HTML' ||
-						category?.toString() === 'CSS' ||
-						category?.toString() === 'JavaScript' ||
-						category?.toString() === 'Accessibility' ? (
-							<CategoryLogo
-								icon={currentQuiz[0].icon}
-								category={currentQuiz[0].title}
-							/>
-						) : null}
-						<div className='scoreboard__score'>
-							<h3>{score}</h3>
-							<p>out of {numberOfQuestions}</p>
+					<div>
+						<div className='scoreboard__board'>
+							{category?.toString() === 'HTML' ||
+							category?.toString() === 'CSS' ||
+							category?.toString() === 'JavaScript' ||
+							category?.toString() === 'Accessibility' ? (
+								<CategoryLogo
+									icon={currentQuiz[0].icon}
+									category={currentQuiz[0].title}
+								/>
+							) : null}
+							<div className='scoreboard__score'>
+								<h3>{score}</h3>
+								<p>out of {numberOfQuestions}</p>
+							</div>
 						</div>
+						<Button
+							text='Play Again'
+							onclick={() => navigate('/')}
+							className='submitButton'
+						/>
 					</div>
-					<Button
-						text='Play Again'
-						onclick={() => navigate('/')}
-						className='submitButton'
-					/>
 				</div>
 			</section>
 		</>
