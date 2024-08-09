@@ -136,8 +136,10 @@ export default function Questions({
 			<section>
 				<form className={isDarkTheme ? `${'form'} ${'darkTheme'}` : 'form'}>
 					<div className='questionWrapper'>
-						<p>{`Question ${questionNumber + 1} of ${questionsLength}`}</p>
-						<h2>{questionData.question}</h2>
+						<div className='contentBlock'>
+							<p>{`Question ${questionNumber + 1} of ${questionsLength}`}</p>
+							<h2>{questionData.question}</h2>
+						</div>
 						<progress
 							value={questionNumber + 1}
 							max={quiz.questions.length}
