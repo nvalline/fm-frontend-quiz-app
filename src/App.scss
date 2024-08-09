@@ -53,6 +53,10 @@ body {
 				padding: 2rem;
 				font-size: var(--fs-heading-sm);
 			}
+
+			&:hover {
+				background-color: var(--clr-hover-purple);
+			}
 		}
 	}
 }

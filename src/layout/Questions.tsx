@@ -134,7 +134,7 @@ export default function Questions({
 		<>
 			<Header category={category} />
 			<section>
-				<form className={isDarkTheme ? `${'darkTheme'}` : ''}>
+				<form className={isDarkTheme ? `${'form'} ${'darkTheme'}` : 'form'}>
 					<div className='questionWrapper'>
 						<p>{`Question ${questionNumber + 1} of ${questionsLength}`}</p>
 						<h2>{questionData.question}</h2>
@@ -144,62 +144,69 @@ export default function Questions({
 							className='progressBar'
 						></progress>
 					</div>
-					<ul className='optionsWrapper'>
-						{questionData.options.map((option: string, index: number) => {
-							const showCheckMark =
-								(answerState.isCorrect === true &&
-									answerState.correctAnswerIndex === index) ||
-								(answerState.isCorrect === false &&
-									answerState.correctAnswerIndex === index);
-							const showXMark =
-								answerState.isCorrect === false && selected === index;
+					<div>
+						<ul className='optionsWrapper'>
+							{questionData.options.map((option: string, index: number) => {
+								const showCheckMark =
+									(answerState.isCorrect === true &&
+										answerState.correctAnswerIndex === index) ||
+									(answerState.isCorrect === false &&
+										answerState.correctAnswerIndex === index);
+								const showXMark =
+									answerState.isCorrect === false && selected === index;
 
-							return (
-								<li key={index}>
-									<button
-										value={option}
-										onClick={(event) => handleChoice(event, index, option)}
-										className={`optionButton ${
-											selected === index ? 'selected' : ''
-										} ${
-											showCheckMark && selected === index
-												? 'selected correct'
-												: ''
-										} ${
-											showXMark && selected === index
-												? 'selected incorrect'
-												: ''
-										}`}
-									>
-										<span className='optionIdentifier'>
-											{String.fromCharCode(65 + index)}
-										</span>
-										{option}
-										<span className='statusIcon'>
-											{showCheckMark && <img src={correctIcon} alt='correct' />}
-											{showXMark && <img src={errorIcon} alt='incorrect' />}
-										</span>
-									</button>
-								</li>
-							);
-						})}
-					</ul>
-					{showSubmitButton ? (
-						<Button
-							onclick={handleSubmit}
-							className='submitButton'
-							text='Submit Answer'
-						/>
-					) : (
-						<Button
-							onclick={handleNextQuestion}
-							className='submitButton'
-							text='Next Question'
-						/>
-					)}
-					{showErrorMessage && (
-						<ErrorMsg errorIcon={errorIcon} message='Please select an answer' />
-					)}
+								return (
+									<li key={index}>
+										<button
+											value={option}
+											onClick={(event) => handleChoice(event, index, option)}
+											className={`optionButton ${
+												selected === index ? 'selected' : ''
+											} ${
+												showCheckMark && selected === index
+													? 'selected correct'
+													: ''
+											} ${
+												showXMark && selected === index
+													? 'selected incorrect'
+													: ''
+											}`}
+										>
+											<span className='optionIdentifier'>
+												{String.fromCharCode(65 + index)}
+											</span>
+											{option}
+											<span className='statusIcon'>
+												{showCheckMark && (
+													<img src={correctIcon} alt='correct' />
+												)}
+												{showXMark && <img src={errorIcon} alt='incorrect' />}
+											</span>
+										</button>
+									</li>
+								);
+							})}
+						</ul>
+						{showSubmitButton ? (
+							<Button
+								onclick={handleSubmit}
+								className='submitButton'
+								text='Submit Answer'
+							/>
+						) : (
+							<Button
+								onclick={handleNextQuestion}
+								className='submitButton'
+								text='Next Question'
+							/>
+						)}
+						{showErrorMessage && (
+							<ErrorMsg
+								errorIcon={errorIcon}
+								message='Please select an answer'
+							/>
+						)}
+					</div>
 				</form>
 			</section>
 		</>
